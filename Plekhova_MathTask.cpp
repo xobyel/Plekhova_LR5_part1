@@ -1,52 +1,56 @@
-include <iostream>
-
-
-
-#include "Surname_MathTask.h"
-
-
+#ifndef _PLEKHOVA_MATHTASK_H
+#define _PLEKHOVA_MATHTASK_H
+#include <string> 
 
 using namespace std;
 
+//функция контроля вводимых данных 
+bool UserInput (string input) {
 
+//если строка пустая ввод некорректен 
+if (input.empty()) return false;
 
-int main()
+//попытаться
 
+try {
+//преобразование введенного значения в тип 
+int number = stoi(input);
+}
 
+catch (...) // если возникла ошибка в блоке try
+
+{return false; }
+
+return true;
 
 }
 
+//метод ввода данных
 
-int NumberA = 0, NumberB = 0;
+void EnterDigit(int& varLink, const string& label) {
 
+string raw_input;
 
+cout <<< label << " = ";
 
-//ввод переменной А
+getline(cin, raw_input);
 
+while (!UserInput (raw_input)) {
 
+cout << label << " = ";
 
-EnterDigit (NumberA, "input height A");
+getline(cin, raw_input);
+}
 
+varLink stoi(raw_input);
 
-
-//ввод переменной В
-
-
-
-EnterDigit (NumberB, "input height B");
-
-
+}
 
 //вычисление площади прямоугольника
 
+Mint CalcRectangleArea (int NumberA, int NumberB) {
 
-
-int RectangleArea = CalcRectangleArea (NumberA, NumberB);
-
-
-//вывод значения площади
-
-
-cout << "Area of Rectangle is << RectangleArea << endl;
-
+return NumberA * NumberB;
 }
+
+#endif
