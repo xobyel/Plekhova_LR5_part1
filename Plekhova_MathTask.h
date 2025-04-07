@@ -1,18 +1,39 @@
-// RectangleUtils.h
-#ifndef RECTANGLE_UTILS_H
-#define RECTANGLE_UTILS_H
+#ifndef SURNAME_MATHTASK_H
+#define SURNAME_MATHTASK_H
 
 #include <string>
 
 using namespace std;
 
-// Функция проверки ввода целого числа
-bool UserInput(string input);
+//функция контроля вводимых данных
+bool UserInput(string input) {
+    //если строка пустая - ввод некорректен
+    if (input.empty()) return false;
+    //попытаться
+    try {
+        //преобразование введенного значения в тип
+        int number = stoi(input);
+    }
+    catch (...) //если возникла ошибка в блоке try
+    { return false; }
+    return true;
+}
 
-// Функция ввода числа с проверкой
-void EnterDigit(int& varLink, const string& label);
+//метод ввода данных
+void EnterDigit(int& varLink, const string& label) {
+    string raw_input;
+    cout << label << " = ";
+    getline(cin, raw_input);
+    while (!UserInput(raw_input)) {
+        cout << label << " = ";
+        getline(cin, raw_input);
+    }
+    varLink = stoi(raw_input);
+}
 
-// Функция вычисления площади прямоугольника
-int CalcRectangleArea(int NumberA, int NumberB);
+//вычисление площади прямоугольника
+int CalRectangleArea(int NumberA, int NumberB) {
+    return NumberA * NumberB;
+}
 
 #endif
