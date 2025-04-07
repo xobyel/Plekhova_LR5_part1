@@ -1,5 +1,5 @@
-#ifndef SURNAME_MATHTASK_H
-#define SURNAME_MATHTASK_H
+#ifndef PLEKHOVA_MATHTASK_H
+#define PLEKHOVA_MATHTASK_H
 
 #include <string>
 
