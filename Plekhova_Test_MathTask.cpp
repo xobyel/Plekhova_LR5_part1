@@ -27,8 +27,8 @@ int main() {
     s.push_back(CUTE(testCalcRectangleArea));
     
     // Настраиваем вывод результатов
-    cute::ide_listener<> listener;
-    cute::makeRunner(listener)(s, "Тест площади прямоугольника");
+    ide_listener<> listener;
+    makeRunner(listener)(s, "Test calcRectangleArea");
     
     return 0;
 }
