@@ -1,34 +1,33 @@
-#include "CUTE/cute/cute.h"
-#include "CUTE/cute/ide_listener.h"
-#include "CUTE/cute/cute_runner.h"
+#include "CUTE/cute.h"
+#include "CUTE/cute_runner.h"
+#include "CUTE/cute_ide_listener.h"
 #include "Plekhova_MathTask.h"
 
-using namespace cute;
+// Базовые тест-кейсы
+void test_normal_case() {
+    ASSERT_EQUAL(15, CalcRectangleArea(3, 5));
+}
 
-// Тест для функции CalcRectangleArea
-void testCalcRectangleArea() {
-    // Подготовка данных
-    int a = 3;
-    int b = 5;
-    int expected = 15; // 3*5=15
+void test_zero_width() {
+    ASSERT_EQUAL(0, CalcRectangleArea(0, 10));
+}
 
-    // Вызов тестируемой функции
-    int actual = CalcRectangleArea(a, b);
+void test_zero_height() {
+    ASSERT_EQUAL(0, CalcRectangleArea(7, 0));
+}
 
-    // Проверка результата
-    ASSERT_EQUAL(expected, actual);
+void test_negative_values() {
+    ASSERT_EQUAL(0, CalcRectangleArea(-5, 4));
 }
 
 int main() {
-    // Создаем набор тестов
-    suite s;
+    cute::suite s;
+    s.push_back(CUTE(test_normal_case));
+    s.push_back(CUTE(test_zero_width));
+    s.push_back(CUTE(test_zero_height));
+    s.push_back(CUTE(test_negative_values));
     
-    // Добавляем тест в набор
-    s.push_back(CUTE(testCalcRectangleArea));
-    
-    // Настраиваем вывод результатов
-    ide_listener<> listener;
-    makeRunner(listener)(s, "Test CalcRectangleArea");
-    
+    cute::ide_listener<> listener;
+    cute::makeRunner(listener)(s, "Rectangle Area Tests");
     return 0;
 }
