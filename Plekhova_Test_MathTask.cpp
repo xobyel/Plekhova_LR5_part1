@@ -28,7 +28,7 @@ int main() {
     
     // Настраиваем вывод результатов
     ide_listener<> listener;
-    makeRunner(listener)(s, "Test calcRectangleArea");
+    makeRunner(listener)(s, "Test CalcRectangleArea");
     
     return 0;
 }
