@@ -1,6 +1,6 @@
-#include "CUTE/cute.h"
-#include "CUTE/cute_runner.h"
-#include "CUTE/cute_ide_listener.h"
+#include "CUTE/cute/cute.h"
+#include "CUTE/cute/cute_runner.h"
+#include "CUTE/cute/cute_ide_listener.h"
 #include "Plekhova_MathTask.h"
 
 // Базовые тест-кейсы
