@@ -3,7 +3,7 @@
 
 #include <string>
 
-int CalcRectangleArea(int NumberA, int NumberB);  // Было Mint вместо int
-void EnterDigit(int& varLink, const std::string& label);
+// Функция проверки ввода пользователя
+bool UserInput(const std::string& input);
 
 #endif
