@@ -21,4 +21,16 @@
             "detail": "Building test executable"
         },
         {
-           
+            "label": "Run Tests",
+            "type": "shell",
+            "command": "${workspaceFolder}/tests.exe",
+            "dependsOn": ["Build Tests"],
+            "group": "test",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
